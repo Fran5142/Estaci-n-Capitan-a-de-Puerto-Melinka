@@ -252,7 +252,7 @@ function actualizarRosaAnimada(dir, spd){
 async function cargarDatos(){
   try{
     const response = await fetch('https://meteorologia-api.salaspancho16.workers.dev/melinka');
-    const lineas = (await response.json()).trim().split('\n');
+    const lineas = (await response.text()).trim().split('\n');
     const datos = lineas[lineas.length-1].trim().split(/\s+/);
     const dir=parseFloat(datos[7]), vel=parseFloat(datos[5]), racha=parseFloat(datos[40]);
 
@@ -282,5 +282,6 @@ L.map('map').setView([-43.8965, -73.7489],13)
 </script>
 </body>
 </html>
+
 
 
